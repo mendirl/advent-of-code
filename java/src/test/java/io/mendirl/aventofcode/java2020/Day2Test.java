@@ -11,20 +11,23 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
+import static io.mendirl.aventofcode.java2020.Day2.calcul_step1;
+import static io.mendirl.aventofcode.java2020.Day2.calcul_step1_inner;
+import static io.mendirl.aventofcode.java2020.Day2.calcul_step2;
+import static io.mendirl.aventofcode.java2020.Day2.calcul_step2_inner;
 import static io.mendirl.aventofcode.java2020.Day2.convert;
-import static io.mendirl.aventofcode.java2020.Day2.filter_step1;
-import static io.mendirl.aventofcode.java2020.Day2.filter_step2;
 
 
 class Day2Test {
 
     @Test
-    void tes_step1() throws URISyntaxException, IOException {
+    void test_step1() throws URISyntaxException, IOException {
         var uri = getClass().getResource("/day2.txt").toURI();
-        var result = Files.readAllLines(Path.of(uri)).stream()
-                .map(Day2::convert)
-                .filter(Day2::filter_step1).count();
+        var entries = Files.readAllLines(Path.of(uri));
 
+        var result = calcul_step1(entries);
+
+        System.out.println("the result is : " + result);
 
         Assertions.assertThat(result).isEqualTo(580);
     }
@@ -33,10 +36,11 @@ class Day2Test {
     @Test
     void test_step2() throws URISyntaxException, IOException {
         var uri = getClass().getResource("/day2.txt").toURI();
-        var result = Files.readAllLines(Path.of(uri)).stream()
-                .map(Day2::convert)
-                .filter(Day2::filter_step2).count();
+        var entries = Files.readAllLines(Path.of(uri));
 
+        var result = calcul_step2(entries);
+
+        System.out.println("the result is : " + result);
 
         Assertions.assertThat(result).isEqualTo(611);
     }
@@ -45,7 +49,7 @@ class Day2Test {
     @ParameterizedTest
     @MethodSource
     void test_filter_step1_true(DataLine argument) {
-        var result = filter_step1(argument);
+        var result = calcul_step1_inner(argument);
         Assertions.assertThat(result).isTrue();
     }
 
@@ -61,7 +65,7 @@ class Day2Test {
     @ParameterizedTest
     @MethodSource
     void test_filter_step1_false(DataLine argument) {
-        var result = filter_step1(argument);
+        var result = calcul_step1_inner(argument);
         Assertions.assertThat(result).isFalse();
     }
 
@@ -75,7 +79,7 @@ class Day2Test {
     @ParameterizedTest
     @MethodSource
     void test_filter_step2_true(DataLine argument) {
-        var result = filter_step2(argument);
+        var result = calcul_step2_inner(argument);
         Assertions.assertThat(result).isTrue();
     }
 
@@ -89,7 +93,7 @@ class Day2Test {
     @ParameterizedTest
     @MethodSource
     void test_filter_step2_false(DataLine argument) {
-        var result = filter_step2(argument);
+        var result = calcul_step2_inner(argument);
         Assertions.assertThat(result).isFalse();
     }
 

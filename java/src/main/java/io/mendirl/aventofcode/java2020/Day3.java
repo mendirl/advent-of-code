@@ -6,6 +6,23 @@ import java.util.List;
 public class Day3 {
 
 
+    static Integer calcul_step1(List<String> grid) {
+        return calcul(new Coord(3, 1), grid);
+    }
+
+    static Integer calcul_step2(List<String> grid) {
+        return List.of(
+                new Coord(1, 1),
+                new Coord(3, 1),
+                new Coord(5, 1),
+                new Coord(7, 1),
+                new Coord(1, 2)
+        ).stream()
+                .map(coord -> calcul(coord, grid))
+                .reduce(1, (x, y) -> x * y);
+    }
+
+
     static Integer calcul(Coord coord, List<String> grid) {
         var length = grid.get(0).length();
 
@@ -19,7 +36,8 @@ public class Day3 {
             pos_r += coord.r();
             pos_d += coord.d();
 
-        } ;
+        }
+        ;
         return size;
     }
 

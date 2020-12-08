@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static io.mendirl.aventofcode.java2020.Day3.calcul;
+import static io.mendirl.aventofcode.java2020.Day3.calcul_step1;
+import static io.mendirl.aventofcode.java2020.Day3.calcul_step2;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 
@@ -22,9 +24,11 @@ class Day3Test {
     @Test
     void test_part_1() throws URISyntaxException, IOException {
         var uri = getClass().getResource("/day3.txt").toURI();
-        var lines = Files.readAllLines(Path.of(uri));
+        var entries = Files.readAllLines(Path.of(uri));
 
-        var result = calcul(new Coord(3, 1), lines);
+        var result = calcul_step1(entries);
+
+        System.out.println("the result is : " + result);
 
         Assertions.assertThat(result).isEqualTo(148);
     }
@@ -32,19 +36,11 @@ class Day3Test {
     @Test
     void test_part_2() throws URISyntaxException, IOException {
         var uri = getClass().getResource("/day3.txt").toURI();
-        var lines = Files.readAllLines(Path.of(uri));
+        var entries = Files.readAllLines(Path.of(uri));
 
+        var result = calcul_step2(entries);
 
-        var result = List.of(
-                new Coord(1, 1),
-                new Coord(3, 1),
-                new Coord(5, 1),
-                new Coord(7, 1),
-                new Coord(1, 2)
-        ).stream()
-                .map(coord -> calcul(coord, lines))
-                .reduce(1, (x, y) -> x * y);
-
+        System.out.println("the result is : " + result);
 
         Assertions.assertThat(result).isEqualTo(727923200);
     }
