@@ -6,15 +6,21 @@ import java.util.List;
 public class Day3 {
 
 
-    static String place(Coord coord, List<String> grid) {
-        var pos_r = 0;
-        var pos_d = 0;
+    static Integer calcul(Coord coord, List<String> grid) {
+        var length = grid.get(0).length();
 
-        pos_d += coord.d();
-        pos_r += coord.r();
+        var pos_r = coord.r();
+        var pos_d = coord.d();
+        var size = 0;
 
-        char c = grid.get(pos_d).charAt(pos_r);
-        return c == '#' ? "X" : "O";
+        while (pos_d < grid.size()) {
+            char c = grid.get(pos_d).charAt(pos_r % length);
+            size += c == '#' ? 1 : 0;
+            pos_r += coord.r();
+            pos_d += coord.d();
+
+        } ;
+        return size;
     }
 
 }
