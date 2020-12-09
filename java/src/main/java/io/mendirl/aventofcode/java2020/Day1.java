@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 public class Day1 {
 
     static Integer calcul_step1(List<String> inputs) {
-        Set<Integer> collect = inputs.stream().map(Integer::parseInt).collect(Collectors.toSet());
+        var collect = inputs.stream().map(Integer::parseInt).collect(Collectors.toSet());
         return calcul(collect, 2);
     }
 
     static Integer calcul_step2(List<String> inputs) {
-        Set<Integer> collect = inputs.stream().map(Integer::parseInt).collect(Collectors.toSet());
+        var collect = inputs.stream().map(Integer::parseInt).collect(Collectors.toSet());
         return calcul(collect, 3);
     }
 
