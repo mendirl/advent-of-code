@@ -32,6 +32,7 @@ public class Day4 {
             if (line.trim().isEmpty()) {
                 nb_pass += 1;
                 if (predicate.test(passport.toString().trim())) {
+                    System.out.println(passport);
                     result += 1;
                 }
 
@@ -63,10 +64,7 @@ public class Day4 {
             var validations = Arrays.stream(passport.split(" "))
                     .map(Day4::validation).flatMap(Collection::stream).collect(Collectors.toList());
 
-            if (validations.size() == 8) return true;
-            if (validations.size() == 7 && !validations.contains(VALIDATION.CID))  return true;
-
-            return false;
+            return (validations.size() >= 7);
         };
     }
 
@@ -90,14 +88,13 @@ enum VALIDATION {
         } else if (arg.endsWith("in")) {
             var tmp = arg.replace("in", "");
             return Integer.parseInt(tmp) >= 59 && Integer.parseInt(tmp) <= 76;
+        } else {
+            return false;
         }
-        return false;
     }),
     HCL("hcl:", arg -> arg.matches("#[a-f0-9]{6}")),
     ECL("ecl:", arg -> List.of("amb", "blu", "brn", "gry", "grn", "hzl", "oth").contains(arg)),
-    PID("pid:", arg -> arg.matches("\\d{9}")),
-    CID("cid:", arg -> !arg.isEmpty()),
-    ;
+    PID("pid:", arg -> arg.matches("\\d{9}"));
 
 
     private final String field;

@@ -37,7 +37,7 @@ public class Day3 {
             pos_d += coord.d();
 
         }
-        ;
+
         return size;
     }
 
