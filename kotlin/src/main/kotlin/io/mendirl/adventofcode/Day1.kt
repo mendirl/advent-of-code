@@ -16,8 +16,6 @@ class Day1 : Day() {
     }
 }
 
-fun List<String>.toInt(): List<Int> = this.map { it.toInt() }
-
 fun <T> Set<T>.combinations(size: Int): Set<Set<T>> {
     return Sets.combinations(this, size)
 }
