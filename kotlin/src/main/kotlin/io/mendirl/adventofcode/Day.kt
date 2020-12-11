@@ -7,6 +7,6 @@ abstract class Day {
 
     fun List<String>.toInt(): List<Int> = this.map { it.toInt() }
 
-    fun List<String>.toInt(radix: Int) = this.map { it.toInt(2) }
+    fun List<String>.toInt(radix: Int) = this.map { it.toInt(radix) }
 
 }
