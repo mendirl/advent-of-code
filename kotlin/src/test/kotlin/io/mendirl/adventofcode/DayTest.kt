@@ -7,7 +7,7 @@ open class DayTest(date: Int) {
     val inputs: List<String>
 
     init {
-        val uri = Day1Test::class.java.getResource("/day$date.txt").toURI()
+        val uri = DayTest::class.java.getResource("/day$date.txt").toURI()
         inputs = File(uri).readLines()
     }
 
