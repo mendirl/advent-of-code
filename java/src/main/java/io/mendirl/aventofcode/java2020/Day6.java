@@ -52,7 +52,8 @@ public class Day6 {
                 var tmp = nb;
                 result += Arrays.stream(answers.toString().split(""))
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                        .entrySet().stream().filter(entry -> entry.getValue() == tmp).map(Map.Entry::getKey).count();
+                        .entrySet().stream()
+                        .filter(entry -> entry.getValue() == tmp).map(Map.Entry::getKey).count();
 
                 System.out.println("result " + result);
 

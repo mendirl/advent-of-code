@@ -28,6 +28,7 @@ public class Day5 {
             var first = collect.get(i);
             var second = collect.get(i + 1);
             var sub = second - first;
+            System.out.println(first);
 
             if (sub == 2) return second - 1;
 
