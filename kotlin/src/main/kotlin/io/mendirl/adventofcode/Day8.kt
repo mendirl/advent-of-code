@@ -1,8 +1,6 @@
 package io.mendirl.adventofcode
 
 class Day8 : Day() {
-    var acc = 0
-
     override fun step1(inputs: List<String>): Int {
         val computer = Computer(inputs, 0)
         computer.execute()
@@ -10,18 +8,18 @@ class Day8 : Day() {
     }
 
     override fun step2(inputs: List<String>): Int {
-     return inputs.indices.map {
+        return inputs.indices.map {
             val s = inputs[it]
             val replaced = when {
                 s.contains("jmp") -> s.replace("jmp", "nop")
                 s.contains("nop") -> s.replace("nop", "jmp")
                 else -> s
             }
-            val arrayList = ArrayList<String>(inputs)
-            arrayList.removeAt(it)
-            arrayList.add(it, replaced)
+            val mutableList = inputs.toMutableList()
+            mutableList.removeAt(it)
+            mutableList.add(it, replaced)
 
-            Computer(arrayList, 0)
+            Computer(mutableList, 0)
         }.first { it.execute() }.acc
     }
 
