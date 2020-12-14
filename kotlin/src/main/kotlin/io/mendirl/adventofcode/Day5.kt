@@ -1,6 +1,6 @@
 package io.mendirl.adventofcode
 
-class Day5 : Day() {
+class Day5 : Day {
     override fun step1(inputs: List<String>): Int {
         return calcul(inputs).maxOrNull()!!
     }

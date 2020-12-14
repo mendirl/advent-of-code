@@ -1,6 +1,6 @@
 package io.mendirl.adventofcode
 
-class Day3 : Day() {
+class Day3 : Day {
     override fun step1(inputs: List<String>): Int {
         return calcul(inputs, 3, 1)
     }

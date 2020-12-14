@@ -1,6 +1,6 @@
 package io.mendirl.adventofcode
 
-class Day8 : Day() {
+class Day8 : Day {
     override fun step1(inputs: List<String>): Int {
         val computer = Computer(inputs, 0)
         computer.execute()

@@ -2,7 +2,7 @@ package io.mendirl.adventofcode
 
 import com.google.common.collect.Sets
 
-class Day1 : Day() {
+class Day1 : Day {
 
     override fun step1(inputs: List<String>) = calcul(HashSet(inputs.toInt()), 2)
 

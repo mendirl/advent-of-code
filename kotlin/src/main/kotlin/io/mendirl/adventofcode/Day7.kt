@@ -1,6 +1,6 @@
 package io.mendirl.adventofcode
 
-class Day7 : Day() {
+class Day7 : Day {
     override fun step1(inputs: List<String>): Int {
         val myBag = "shiny gold"
         val outerBags = mutableSetOf<String>()

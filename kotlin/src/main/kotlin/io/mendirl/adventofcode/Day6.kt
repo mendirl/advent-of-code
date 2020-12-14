@@ -1,6 +1,6 @@
 package io.mendirl.adventofcode
 
-class Day6 : Day() {
+class Day6 : Day {
     override fun step1(inputs: List<String>): Int {
         return calcul(inputs) { it.reduce { a, b -> a.union(b) }.size }
     }
