@@ -16,7 +16,7 @@ class Day12Test : DayTest(12) {
     fun `test part 2`() {
         val result = Day12().step2(inputs)
 
-        Assertions.assertEquals(2259, result)
+        Assertions.assertEquals(52069, result)
     }
 
     @Test
