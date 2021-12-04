@@ -10,7 +10,8 @@
 
 	<modules>
 		<module>java</module>
-		<module>kotlin</module>
-		<module>rust</module>
+		<module>kotlin2020</module>
+		<module>kotlin2021</module>
+<!--		<module>rust</module>-->
 	</modules>
 </project>
